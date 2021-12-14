@@ -1,0 +1,58 @@
+#! /bin/bash
+# author : lordpax
+# passphrase v1.0
+# Petit script permettant de générer des passphrase aléatoirement
+
+dict="/usr/share/hunspell/fr_FR.dic"
+nbLine=$(wc -l < $dict)
+nbWord=1
+
+function helpFunc() {
+    echo "Usage : $0 [option] <nbWord>
+
+Option:
+-h or --help ...................... This help
+-n ................................ Number of word
+-l ................................ Wordlist"
+    exit 0
+}
+
+function genWord() {
+    local random=$(shuf -i 1-$nbLine -n 1)
+
+    local word=$(head -n $random $dict | tail -1)
+    word=$(echo $word | cut -d '/' -f 1)
+    word=$(echo $word | awk '{print $1}')
+
+    echo $word
+}
+
+function genPassphrase() {
+    local word=""
+    local pass=""
+
+    for i in $(seq 1 $nbWord); do
+        word=$(genWord)
+        pass="$pass $word"
+    done
+
+    echo $pass
+}
+
+if [ $# -ge 1 ]; then
+    for i in $(seq 1 $#); do
+        if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then 
+            helpFunc
+        elif [ "$1" == "-n" ]; then 
+            shift
+            nbWord=$1
+        elif [ "$1" == "-l" ]; then 
+            shift
+            dict=$1
+            nbLine=$(wc -l < $1)
+        fi
+        shift
+    done
+fi
+
+genPassphrase
