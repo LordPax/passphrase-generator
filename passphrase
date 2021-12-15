@@ -28,12 +28,10 @@ function genWord() {
 }
 
 function genPassphrase() {
-    local word=""
     local pass=""
 
     for i in $(seq 1 $nbWord); do
-        word=$(genWord)
-        pass="$pass $word"
+        pass="$pass $(genWord)"
     done
 
     echo $pass
