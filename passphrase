@@ -8,7 +8,7 @@ nbLine=$(wc -l < $dict)
 nbWord=1
 
 function helpFunc() {
-    echo "Usage : $0 [option] <nbWord>
+    echo "Usage : $0 [option]
 
 Option:
 -h or --help ...................... This help
