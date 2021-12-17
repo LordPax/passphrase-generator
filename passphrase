@@ -6,14 +6,17 @@
 dict="/usr/share/hunspell/fr_FR.dic"
 nbLine=$(wc -l < $dict)
 nbWord=1
+maxLength=0
 
 function helpFunc() {
-    echo "Usage : $0 [option]
+    echo "Usage : $0 [options]
 
-Option:
+Option :
 -h or --help ...................... This help
 -n ................................ Number of word
--l ................................ Wordlist"
+-l ................................ Max length of word
+-w ................................ Wordlist
+-s ................................ Statistiques (soon)"
     exit 0
 }
 
@@ -45,6 +48,9 @@ if [ $# -ge 1 ]; then
             shift
             nbWord=$1
         elif [ "$1" == "-l" ]; then 
+            shift
+            maxLength=$1
+        elif [ "$1" == "-w" ]; then 
             shift
             dict=$1
             nbLine=$(wc -l < $1)
