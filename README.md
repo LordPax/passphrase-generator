@@ -1,16 +1,16 @@
 # Passphrase generator
 
 ## Description
-Petit script permettant de générer des passphrase aléatoirement
+Petit script permettant de générer des passphrases aléatoirement
 
 ## Usage
 ```
-Usage : passphrase [options]
+Usage : $0 [options]
 
-Option :
+Options :
 -h or --help ...................... This help
--n ................................ Number of word
--l ................................ Max length of word
--w ................................ Wordlist
+-n <nbWord> ....................... Number of word (soon)
+-l <length> ....................... Max length of word
+-w <file> ......................... Wordlist
 -s ................................ Statistiques (soon)
 ```
