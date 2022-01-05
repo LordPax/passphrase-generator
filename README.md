@@ -7,10 +7,11 @@ Petit script permettant de générer des passphrases aléatoirement
 ```
 Usage : $0 [options]
 
-Options :
+Option :
 -h or --help ...................... This help
--n <nbWord> ....................... Number of word (soon)
--l <length> ....................... Max length of word
+-v or --version ................... Show version
+-n <nbWord> ....................... Number of word 
+-l <length> ....................... Max length of word (soon)
 -w <file> ......................... Wordlist
 -s ................................ Statistiques (soon)
 ```
